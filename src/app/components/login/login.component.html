@@ -1,0 +1,106 @@
+
+<div class="container ls-container">
+  <img src="lawlogo.jpg" alt="Company Logo">
+  <label class="welcome-label">Welcome back</label>
+  <form  [formGroup] ="loginForm">
+    <div class="form-group pt-3"> 
+        <!-- for error massage -->
+        <small *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required', 'username')" class="text-danger">*Username is required</small>
+        <div class="input-field"  >          
+           <!-- <span class="fa fa-user p-2"></span> -->
+            <input formControlName="username" type="text" placeholder="Username">
+        </div>
+    </div>
+
+
+  
+
+    <!-- <div class="form-group pt-3">      
+        <div class="input-field">    
+           <span class="fa fa-user p-2"></span>
+            <input formControlName="password" type="text" placeholder="Password">
+        </div>
+    </div> -->
+
+          <!-- for error massage -->
+            <small *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required', 'username')" class="text-danger">*Username is required</small>
+            <div class="form-group pt-3">
+                <div class="input-field" [class.error]="loginForm.controls['password'].dirty && loginForm.hasError('required', 'password')">
+                    <!-- this is using from font awesome -->
+                    <span class="fa fa-lock p-2"></span>
+                    <input formControlName="password" [type]="type" placeholder="Password">
+                    <!-- for eye icon -->
+                    <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+                </div>
+            </div>
+            <!-- for error massage -->
+            <small *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required', 'password')" class="text-danger">*Password is required</small>
+            <div class="form-inline fr mt-4">
+                <a class="form-inline fr mt-4" id="forget" data-bs-toggle="modal" data-bs-target="#exampleModal" class="font-weight-bold">Forget Password?</a>
+            </div>
+
+    <div class="form-group pt-3 ls-container">
+
+      <button (click)="onLogin()" type="submit"  class="login-button ml-3">Log in</button>
+  
+    </div>
+    <div class="form-group pt-3 ">
+      <label class="signup-label ls-container">
+        Don't have an account?
+        <a  routerLink="/signup" class="signup-link">Sign up</a>
+      </label>
+    </div>
+    <div class="form-group pt-3">
+      
+      <div class="or-container">
+        <div class="line"></div>
+        <div class="or-label">OR</div>
+        <div class="line"></div>
+      </div>
+      <div class="form-group pt-3">
+        <a  style="text-decoration: none;cursor: pointer;">
+            <div class="card shadow text-center">
+                <div class="card-body">
+                    <img src="assets\images\googleicon.png" alt="" height="2px" width="2px"> Sign In with Google
+                </div>
+            </div>
+        </a>
+    </div>
+     
+      <!-- <button class="google-button">
+      
+        Continue with Google
+      </button> -->
+    </div>
+
+   
+    <!-- <input type="password" class="text-field" placeholder="Password"> -->
+    <!-- <label class="forgot-label"><a href="#">Forgot password?</a></label>
+    <button (click)="onLogin()" type="submit"  class="login-button">Log in</button>
+    <label class="signup-label">
+      Don't have an account?
+      <a href="#" class="signup-link">Sign up</a>
+    </label>
+    <div class="or-container">
+      <div class="line"></div>
+      <div class="or-label">OR</div>
+      <div class="line"></div>
+    </div>
+    <button class="google-button">
+      <img src="google-logo.png" alt="Google Logo" class="google-logo">
+      Continue with Google
+    </button> -->
+  </form>
+<!-- 
+  <div class="row mt-2">
+    <a  style="text-decoration: none;cursor: pointer;">
+        <div class="card shadow text-center">
+            <div class="card-body">
+                <img src="assets\images\googleicon.png" alt="" height="2px" width="2px"> Sign In with Google
+            </div>
+        </div>
+    </a>
+</div> -->
+  <div class="footer">
+    <label class="footer-label">Terms of use | Privacy policy</label>
+  </div>

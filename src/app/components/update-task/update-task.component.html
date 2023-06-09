@@ -1,0 +1,172 @@
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <span class="fs-5 d-none d-sm-inline">Menu</span>
+                </a>
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                    <li class="nav-item">
+                        <a routerLink="/dashboard" class="nav-link align-middle px-0">
+                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
+                        </a>
+                    </li>
+                    <!-- <li>
+                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
+                        <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                            <li class="w-100">
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1 </a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2 </a>
+                            </li>
+                        </ul>
+                    </li> -->
+                    <li>
+                        <a routerLink="/create-task" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Create Task</span></a>
+                    </li>
+                    <!--  <li>
+                       <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                            <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline"></span></a>
+                        <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                            <li class="w-100">
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1</a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2</a>
+                            </li>
+                        </ul>
+                    </li> -->
+                    <li>
+                        <a routerLink="/view-task" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">View Task</span> </a>
+                            <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+                            <li class="w-100">
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a routerLink="/update-task" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Update/Change Task</span> </a>
+                    </li>
+                    <li>
+                      <a routerLink="/delete-task" class="nav-link px-0 align-middle">
+                          <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Delete Task</span> </a>
+                  </li>
+                  <li>
+                    <a routerLink="/filter-task" class="nav-link px-0 align-middle">
+                        <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Filter Task</span> </a>
+                </li>
+                <li>
+                  <a routerLink="/sort-task" class="nav-link px-0 align-middle">
+                      <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Sort Task</span> </a>
+              </li>
+                </ul>
+                <hr>
+                <div class="dropdown pb-4">
+                    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                        <span class="d-none d-sm-inline mx-1"> Hello,{{fullName}} </span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                        <li><a class="dropdown-item" href="#">New project...</a></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" (click) = "logout()" >Sign out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- (ngSubmit)="createsubmit()" -->
+        <form [formGroup] = "updateForm" (ngSubmit)="updatesubmit()" >
+            <div class="form-group pt-3">
+            <h2>Update Task</h2>
+            <ul class="form-style-1">
+             <h3>{{fullName}}</h3>
+                <li>
+                                 <!-- for error massage -->
+        <!-- <small *ngIf="createForm.controls['txttitle'].dirty && createForm.hasError('required', 'txttitle')" class="text-danger">*Title is required</small> -->
+                    <label for="txttitle" class="form-label">Title </label>                       
+                    <input  type="text" id="txttitle" name="txttitle" class="field-long " placeholder="Enter Title" formControlName="txttitle" />
+                    <div class="form-text text-danger"   *ngIf ="Title.errors?.['required'] && (Title.dirty || Title.touched )">
+                        Title is required.
+                    </div>
+
+                    <div class="form-text text-danger" *ngIf ="Title.errors?.['minlength']">
+                        Title is too short.
+                    </div>
+
+                </li>
+                <li><label for="credate" class="form-label" >Creation Date </label>
+                    <!-- <span class="required">*</span> -->
+                    <input type="date"  id="credate" name="credate" class="field-divided" formControlName="credate" />
+                  <div class="form-text text-danger" *ngIf ="CreateDate.errors?.['required'] && (CreateDate.dirty || CreateDate.touched )">
+                        Please Select Create Date.
+                    </div>
+                </li>
+                    
+                    <li><label  for="duedate" class="form-label">Due Date </label>
+                     <input type="date" id="duedate" name="duedate" class="field-divided" formControlName="duedate" />
+                     <div class="form-text text-danger"  *ngIf ="Duedate.errors?.['required'] && (Duedate.dirty || Duedate.touched )">
+                        Please Select Due Date.
+                    </div>
+                </li>
+                     <li>
+                        <label for="txtstatus" class="form-label" >Status</label>
+                        <select id="txtstatus" name="txtstatus" class="field-select" formControlName="txtstatus">
+                            <option value=""></option>
+                        <option value="done">Done</option>
+                        <option value="pending">Pending</option>
+                        <option value="completed">Completed</option>
+                        </select>
+                        <div class="form-text text-danger"  *ngIf ="Status.errors?.['required'] && (Status.dirty || Status.touched )">
+                            Please Select Status.
+                        </div>
+                    </li>
+                <li>
+                    <label for="txtpriority" class="form-label">Priority</label>
+                    <select id="txtpriority" name="txtpriority" class="field-select" formControlName="txtpriority" >
+                        <option value=""></option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                    </select>
+                    <div class="form-text text-danger"  *ngIf ="Priority.errors?.['required'] && (Priority.dirty || Priority.touched )">
+                        Please Select Priority.
+                    </div>
+                </li>
+                <li>
+                    <label  for="txtdescrip" class="form-label" >Description </label>
+                    <textarea name="txtdescrip" id="txtdescrip" class="field-long field-textarea" formControlName="txtdescrip" ></textarea>
+                    <div class="form-text text-danger"  *ngIf ="Description.errors?.['required'] && (Description.dirty || Description.touched )" >
+                        Please Enter Description.
+                    </div>
+                    <div class="form-text text-danger" *ngIf ="Description.errors?.['minlength']">
+                        Description is too short.
+                    </div>
+                </li>
+                <li>
+                    <!-- routerLink="/view-task" -->
+                    <button (click)="onUpdate()" type="submit" id="" name="" class="btn btn-primary btn-block mt-4 w-100">Submit</button>
+                    <!-- <input  (click)="onInsert()" id="" name=""  type="submit" value="Submit" /> -->
+                </li>
+            </ul>
+            </div>
+            </form>
